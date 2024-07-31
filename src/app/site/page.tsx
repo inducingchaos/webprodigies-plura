@@ -20,7 +20,7 @@ export default function Home() {
                     <div className="bottom-0 top-[50%} bg-gradient-to-t dark:from-background left-0 right-0 absolute z-10"></div>
                 </div>
             </section>
-            <section className="flex justify-center items-center flex-col gap-4 md:mt-20">
+            <section className="flex justify-center items-center flex-col gap-4 md:!mt-20 mt-[-60px]">
                 <h2 className="text-4xl text-center"> Choose what fits you right</h2>
                 <p className="text-muted-foreground text-center">
                     {" "}
@@ -29,6 +29,7 @@ export default function Home() {
                 <div className="flex justify-center gap-4 flex-wrap mt-6">
                     {pricingCards.map(card => {
                         return (
+                            //  WIP: Wire up free product from Stripe
                             <Card
                                 key={card.title}
                                 className={clsx("w-[300px] flex flex-col justify-between", {
@@ -36,7 +37,7 @@ export default function Home() {
                                 })}
                             >
                                 <CardHeader>
-                                    <CardTitle className={clsx("", { "text-muted-foreground": card.title === "Unlimited Saas" })}>{card.title}</CardTitle>
+                                    <CardTitle className={clsx("", { "text-muted-foreground": card.title !== "Unlimited Saas" })}>{card.title}</CardTitle>
                                     <CardDescription>{card.description}</CardDescription>
                                 </CardHeader>
                                 <CardContent>
